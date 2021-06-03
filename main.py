@@ -92,3 +92,21 @@ class Solution:
 
 # ===============
 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        
+        currSlow = head
+        currFast = head
+        
+        while currFast and currFast.next:
+            currSlow = currSlow.next
+            currFast = currFast.next.next
+            
+        return currSlow
+
+# ===============
