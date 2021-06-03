@@ -130,3 +130,33 @@ class Solution:
 
 # ===============
 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        
+        curr = head
+        
+#         while curr and curr.next:
+#             while curr and curr.next and curr.val == curr.next.val:
+#                 curr.next = curr.next.next
+#             curr = curr.next
+
+#         return head
+    
+        # Method 2 - Recursion
+        
+        if curr is None or curr.next is None:
+            return head
+        
+        if curr.val == curr.next.val:
+            curr.next = self.deleteDuplicates(curr.next)
+            return curr.next
+        else:
+            curr.next = self.deleteDuplicates(curr.next)
+            return head
+
+# ===============
