@@ -20,3 +20,53 @@ def mergeTwoLinkedLists(l1, l2):
 
 # ===============
 
+# Singly-linked lists are already defined with this interface:
+# class ListNode(object):
+#   def __init__(self, x):
+#     self.value = x
+#     self.next = None
+#
+
+def printList(l):
+    LL = l
+    while LL:
+        print(LL.value, end="--> ")
+        LL = LL.next
+    print("None")
+    
+def insertValueIntoSortedLinkedList(l, value):
+    
+    curr = l
+    newNode = ListNode(value)
+    print('newNode', newNode.value)
+    
+    if (curr == None):
+            l = newNode
+            return l
+    
+    while curr != None:
+        if (curr.value > newNode.value):
+            newNode.next = l
+            l = newNode
+            printList(l)
+            return l
+        elif (curr.next == None):
+            curr.next = newNode
+            printList(l)
+            return l
+        elif (curr.next.value > newNode.value):
+            printList(l)
+            newNode.next = curr.next
+            printList(l)
+            curr.next = newNode
+            printList(l)
+            
+            curr = curr.next
+            printList(l)
+            return l
+        else:
+            curr = curr.next
+    
+        
+        
+    return l
